@@ -1,14 +1,14 @@
 import path from 'path';
-import {BuildMode, BuildPath, EnvVariables} from "./webpack/type/types";
-import {buildWebpack} from "./webpack/build/buildWebpack";
-import {Configuration} from "webpack";
+import { BuildMode, BuildPath, EnvVariables } from './webpack/type/types';
+import { buildWebpack } from './webpack/build/buildWebpack';
+import { Configuration } from 'webpack';
 
 export default (env: EnvVariables) => {
     const paths: BuildPath = {
         output: path.resolve(__dirname, 'build'),
         entry: path.resolve(__dirname, 'client', 'src', 'index.tsx'),
         html: path.resolve(__dirname, 'ssr', 'ssr.html'),
-    }
+    };
 
     const config: Configuration = buildWebpack({
         port: env.port ?? 5000,
@@ -17,4 +17,4 @@ export default (env: EnvVariables) => {
     });
 
     return config;
-}
+};

@@ -1,17 +1,17 @@
 const enum BuildMode {
-    production = "production",
-    development = "development",
+    production = 'production',
+    development = 'development',
 }
 
 interface EnvVariables {
-    mode: BuildMode,
-    port: number,
+    mode: BuildMode;
+    port: number;
 }
 
 interface BuildPath {
-    output: string,
-    entry: string,
-    html: string,
+    output: string;
+    entry: string;
+    html: string;
 }
 
 interface BuildOptions {
@@ -20,4 +20,4 @@ interface BuildOptions {
     mode: BuildMode;
 }
 
-export {EnvVariables, BuildMode, BuildPath, BuildOptions};
+export { EnvVariables, BuildMode, BuildPath, BuildOptions };

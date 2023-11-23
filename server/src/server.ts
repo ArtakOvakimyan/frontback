@@ -1,20 +1,18 @@
-import {render} from "./render";
-
-const express = require( 'express' );
-const fs = require( 'fs' );
-const path = require( 'path' );
-const React = require( 'react' );
-const ReactDOMServer = require( 'react-dom/server' );
-const { StaticRouter, matchPath } = require( 'react-router-dom' );
+import { render } from './render';
+import path from 'path';
+import express from 'express';
 
 const app = express();
 //const routes = require( './routes' );
 
-app.get( /\.(js|map|ico|css)$/, express.static( path.resolve( __dirname, '../../build' ) ) );
+app.get(
+    /\.(js|map|ico|css)$/,
+    express.static(path.resolve(__dirname, '../../build'))
+);
 
 // for any other requests, send `index.html` as a response
-app.get( '/', async ( req: any, res: any ) => {
-    // const matchRoute = routes.find(route => matchPath( req.originalUrl, route ) );
+app.get('*', async (req: express.Request, res: express.Response) => {
+    // const matchRoute = routes.find(routes => matchPath( req.originalUrl, routes ) );
 
     // let componentData = null;
     // if( typeof matchRoute.component.fetchData === 'function' ) {
@@ -32,14 +30,13 @@ app.get( '/', async ( req: any, res: any ) => {
     //     `var initial_state = ${ JSON.stringify( componentData ) };`
     // );
 
-    let indexHTML = render();
-
+    const indexHTML = render(req);
     res.contentType('text/html');
     res.status(200);
 
     return res.send(indexHTML);
-} );
+});
 
-app.listen( '9000', () => {
-    console.log( 'Express server started at http://localhost:9000' );
-} );
+app.listen('9000', () => {
+    console.log('Express server started at http://localhost:9000');
+});

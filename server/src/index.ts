@@ -1,2 +1,2 @@
-require( 'ignore-styles' );
+require('ignore-styles');
 require('./server.ts');

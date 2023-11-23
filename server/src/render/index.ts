@@ -1,2 +1,2 @@
-import render from "./render";
-export {render};
+import render from './render';
+export { render };

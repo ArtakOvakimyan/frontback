@@ -1,18 +1,9 @@
-import './App.scss'
-import {useState} from "react";
-import bem from "bem-ts";
-
-const b = bem("App")
+import './App.scss';
+import { useRoutes } from 'react-router-dom';
+import routes from '../../routes/routes';
 
 const App = () => {
-    const [count, setCount] = useState(1);
-    return (
-        <div className={b('divv')}>
-            Hello World!!!
-            {count}
-            <button className={b("button")} onClick={() => {setCount(x=> x+1)}}></button>
-        </div>
-    );
+    return useRoutes(routes);
 };
 
 export default App;
