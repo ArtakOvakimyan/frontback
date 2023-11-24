@@ -5,6 +5,8 @@ import * as fs from 'fs';
 import { StaticRouter } from 'react-router-dom/server';
 import ReactDOMServer from 'react-dom/server';
 import express from 'express';
+import userMock from '../../api/mock/userMock';
+import { StaticContext } from '../../../client/src/context/context';
 
 export default function (req: express.Request) {
     let indexHTML = fs.readFileSync(
@@ -13,14 +15,23 @@ export default function (req: express.Request) {
             encoding: 'utf8',
         }
     );
+    const appData = { user: userMock, post: { private: true } };
+
     const appHTML = ReactDOMServer.renderToString(
-        <StaticRouter location={req.url}>
-            <App />
-        </StaticRouter>
+        <StaticContext.Provider value={appData}>
+            <StaticRouter location={req.url}>
+                <App />
+            </StaticRouter>
+        </StaticContext.Provider>
     );
     indexHTML = indexHTML.replace(
         '<div id="root"></div>',
         `<div id="root">${appHTML}</div>`
     );
+    indexHTML = indexHTML.replace(
+        'var appData = null;',
+        `var appData = ${JSON.stringify(appData)}`
+    );
+
     return indexHTML;
 }

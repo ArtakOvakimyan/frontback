@@ -4,9 +4,12 @@ import { buildWebpack } from './webpack/build/buildWebpack';
 import { Configuration } from 'webpack';
 
 export default (env: EnvVariables) => {
+    const entryFileName: string = `index.${
+        env.mode === BuildMode.development ? 'dev' : 'prod'
+    }.tsx`;
     const paths: BuildPath = {
         output: path.resolve(__dirname, 'build'),
-        entry: path.resolve(__dirname, 'client', 'src', 'index.tsx'),
+        entry: path.resolve(__dirname, 'client', 'src', entryFileName),
         html: path.resolve(__dirname, 'ssr', 'ssr.html'),
     };
 
