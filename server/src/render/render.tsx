@@ -26,7 +26,7 @@ export default function (req: express.Request) {
     );
     indexHTML = indexHTML.replace(
         '<div id="root"></div>',
-        `<div id="root">${appHTML}</div>`
+        `<div id="root" style="height: 100%; width: 100%">${appHTML}</div>`
     );
     indexHTML = indexHTML.replace(
         'var appData = null;',

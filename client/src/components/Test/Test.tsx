@@ -2,14 +2,12 @@ import './Test.scss';
 import { useEffect, useState } from 'react';
 import bem from 'bem-ts';
 import { useStaticContext } from '../../context/context';
+import { useParams } from 'react-router-dom';
 
 const b = bem('Test');
-declare global {
-    interface Window {
-        appData: any;
-    }
-}
-const test = () => {
+
+const Test = () => {
+    const { id } = useParams();
     const [count, setCount] = useState(1);
     const [a, setA] = useState('aaa');
     const context = useStaticContext();
@@ -21,10 +19,11 @@ const test = () => {
         } else {
             setA('goy');
         }
-    });
+    }, []);
     return (
         <div className={b('divv')}>
             <span>{`Hello ${a}!!!`}</span>
+            <span>{id}</span>
             <span>{count}</span>
             <button
                 className={b('button')}
@@ -36,4 +35,4 @@ const test = () => {
     );
 };
 
-export default test;
+export default Test;

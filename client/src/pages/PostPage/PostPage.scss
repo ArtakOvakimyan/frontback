@@ -1,0 +1,24 @@
+.postPage {
+  padding: 15px;
+}
+.title {
+  color: #ddd;
+  font-weight: 500;
+  font-size: 1.5em;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.area {
+  overflow: hidden;
+  overflow-wrap: break-word;
+  height: 300px;
+  width: 100%;
+  background-color: #2b2b2b;
+  border: 1px solid #333;
+  color: #ddd;
+  resize: unset;
+  outline: none;
+}

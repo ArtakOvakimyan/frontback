@@ -6,7 +6,7 @@ const app = express();
 //const routes = require( './routes' );
 
 app.get(
-    /\.(js|map|ico|css)$/,
+    /\.(js|map|ico|css|svg)$/,
     express.static(path.resolve(__dirname, '../../build'))
 );
 

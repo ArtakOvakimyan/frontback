@@ -1,0 +1,29 @@
+.searchBar {
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  background-color: #2b2b2b;
+  border: 1px solid #333;
+}
+.input {
+  background-color: #2b2b2b;
+  border: 0;
+  color: #ffffff;
+  width: 160px;
+  height: 30px;
+  padding: 0 5px;
+  outline: none;
+}
+.button {
+  cursor: pointer;
+  width: 33px;
+  height: 30px;
+  background: transparent;
+  opacity: 0.8;
+  border: none;
+  outline: 0;
+  position: relative;
+  top: 2px;
+}
