@@ -12,7 +12,7 @@
   gap: 15px;
 }
 .area {
-  overflow: hidden;
+  overflow-y: scroll;
   overflow-wrap: break-word;
   height: 300px;
   width: 100%;
