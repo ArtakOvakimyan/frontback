@@ -1,25 +1,27 @@
-import './SubmitButton.scss';
+import './BasicButton.scss';
 import bem from 'bem-ts';
 import { FC } from 'react';
 
-const b = bem('SubmitButton');
+const b = bem('BasicButton');
 
 type SubmitButtonProps = {
     onClickFunction: () => void;
     text: string;
     styles?: React.CSSProperties;
+    type: 'submit' | 'reset' | 'button' | undefined;
 };
 
-const SubmitButton: FC<SubmitButtonProps> = (props) => {
+const BasicButton: FC<SubmitButtonProps> = (props) => {
     return (
-        <div
+        <button
             onClick={props.onClickFunction}
-            className={b('submitButton')}
+            className={b('basicButton')}
+            type={props.type}
             style={props.styles}
         >
             <span className={b('span')}>{props.text}</span>
-        </div>
+        </button>
     );
 };
 
-export default SubmitButton;
+export default BasicButton;

@@ -1,2 +1,2 @@
-import SubmitButton from './SubmitButton';
-export { SubmitButton };
+import BasicButton from './BasicButton';
+export { BasicButton };

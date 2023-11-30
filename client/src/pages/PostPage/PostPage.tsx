@@ -1,7 +1,7 @@
 import './PostPage.scss';
 import bem from 'bem-ts';
 import { MainLayout } from '../MainLayout';
-import { SubmitButton } from '../../components/Buttons/SubmitButton';
+import { BasicButton } from '../../components/Buttons/SubmitButton';
 
 const b = bem('PostPage');
 
@@ -10,13 +10,14 @@ const PostPage = () => {
         <MainLayout>
             <div className={b('postPage')}>
                 <div className={b('title')}>{'New Post'}</div>
-                <div className={b('form')}>
+                <form className={b('form')}>
                     <textarea className={b('area')} />
-                    <SubmitButton
+                    <BasicButton
                         onClickFunction={() => {}}
                         text={'Create New Post'}
+                        type={'submit'}
                     />
-                </div>
+                </form>
             </div>
         </MainLayout>
     );

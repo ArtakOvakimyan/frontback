@@ -1,15 +1,13 @@
 import { Test } from '../components/Test';
-import PostPage from '../pages/PostPage/PostPage';
+import { PostPage } from '../pages/PostPage';
 import { LoginPage } from '../pages/LoginPage';
 import { SignupPage } from '../pages/SignupPage';
+import { PostedPage } from '../pages/PostedPage';
 
 export default [
     { path: '/', element: <PostPage /> },
-    {
-        path: 'auth',
-        element: <Test />,
-    },
-    { path: '/:id', element: <Test /> },
+    { path: '/test', element: <Test /> },
+    { path: '/post', element: <PostedPage /> },
     { path: '/login', element: <LoginPage /> },
     { path: '/signup', element: <SignupPage /> },
 ];

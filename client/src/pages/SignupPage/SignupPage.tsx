@@ -1,7 +1,8 @@
 import './SignupPage.scss';
 import bem from 'bem-ts';
 import { MainLayout } from '../MainLayout';
-import { SubmitButton } from '../../components/Buttons/SubmitButton';
+import { BasicButton } from '../../components/Buttons/SubmitButton';
+import { signupData } from './const';
 
 const b = bem('SignupPage');
 
@@ -10,39 +11,29 @@ const SignupPage = () => {
         <MainLayout>
             <div className={b('signupPage')}>
                 <div className={b('title')}>Signup Page</div>
-                <div className={b('form')}>
-                    <div className={b('inputContainer')}>
-                        <label className={b('label')}>Username:</label>
-                        <input
-                            className={b('input')}
-                            placeholder={'username'}
-                            onChange={() => {}}
-                        ></input>
-                    </div>
-                    <div className={b('inputContainer')}>
-                        <label className={b('label')}>Password:</label>
-                        <input
-                            className={b('input')}
-                            placeholder={'password'}
-                            onChange={() => {}}
-                        ></input>
-                    </div>
-                    <div className={b('inputContainer')}>
-                        <label className={b('label')}>Confirm password:</label>
-                        <input
-                            className={b('input')}
-                            placeholder={'password'}
-                            onChange={() => {}}
-                        ></input>
-                    </div>
+                <form className={b('form')}>
+                    {signupData.map((data) => (
+                        <div className={b('inputContainer')} key={data.id}>
+                            <label className={b('label')}>
+                                {data.labelText}:
+                            </label>
+                            <input
+                                className={b('input')}
+                                placeholder={data.placeholder}
+                                onChange={() => {}}
+                                required
+                                {...data.length}
+                            ></input>
+                        </div>
+                    ))}
                     <div className={b('button')}>
-                        <SubmitButton
+                        <BasicButton
                             onClickFunction={() => {}}
                             text={'Signup'}
-                            styles={{ width: '62px', height: '35px' }}
+                            type={'submit'}
                         />
                     </div>
-                </div>
+                </form>
             </div>
         </MainLayout>
     );

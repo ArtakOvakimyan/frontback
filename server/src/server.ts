@@ -1,6 +1,7 @@
 import { render } from './render';
 import path from 'path';
 import express from 'express';
+import {} from './lib';
 
 const app = express();
 //const routes = require( './routes' );

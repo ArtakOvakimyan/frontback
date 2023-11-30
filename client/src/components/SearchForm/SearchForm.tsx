@@ -16,7 +16,7 @@ const SearchForm = () => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             ></input>
-            <Link to={text}>
+            <Link to={`/post/?id=${text}`}>
                 <button className={b('button')}>
                     <SearchSVG />
                 </button>

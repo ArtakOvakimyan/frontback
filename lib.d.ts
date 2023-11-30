@@ -1,5 +1,5 @@
 declare global {
-    var appData: any;
+    let appData: any;
 
     interface Window {
         appData: any;

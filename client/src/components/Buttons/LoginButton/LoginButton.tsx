@@ -3,14 +3,13 @@ import bem from 'bem-ts';
 import { Link } from 'react-router-dom';
 
 const b = bem('LoginButton');
+const linkClass = [b('loginButton'), b('link')].join(' ');
 
 const LoginButton = () => {
     return (
-        <div className={b('loginButton')}>
-            <Link to="/login" className={b('link')}>
-                <span className={b('span')}>Login</span>
-            </Link>
-        </div>
+        <Link to="/login" className={linkClass}>
+            <span className={b('span')}>Login</span>
+        </Link>
     );
 };
 

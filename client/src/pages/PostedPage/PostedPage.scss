@@ -1,0 +1,33 @@
+.postedPage {
+  padding: 15px;
+  color: #ddd;
+}
+.title {
+  font-weight: 500;
+  font-size: 1.5em;
+  padding-bottom: 20px;
+}
+.subTitle {
+  font-weight: 400;
+  font-size: 1.1em;
+  padding-bottom: 10px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.area {
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+  height: 300px;
+  width: 60%;
+  background-color: #2b2b2b;
+  border: 1px solid #333;
+  color: #ddd;
+  resize: unset;
+  outline: none;
+}
+.buttonsBox > * {
+    margin-right: 15px;
+}
